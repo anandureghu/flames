@@ -1,0 +1,163 @@
+@font-face {
+  font-family: "Brolimo";
+  src: url("/fonts/BrolimoRegular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ShadowHand";
+  src: url("/fonts/ShadowHand.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --font-brolimo: "Brolimo";
+  --font-shadowhand: "ShadowHand";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-brolimo);
+}
+
+.app {
+  min-width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fabab7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #fabab7,
+    rgb(241, 151, 163)
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #fabab7,
+    rgb(241, 151, 163)
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  padding: 30px;
+
+  &__title {
+    width: 100%;
+    text-align: center;
+    font-size: 70px;
+    // font-family: var(--font-shadowhand);
+    font-family: var(--font-brolimo);
+
+    background: #f857a6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #ff5858,
+      #f857a6
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #ff5858,
+      #f857a6
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__input {
+    margin-top: 30px;
+
+    &-fields {
+      display: flex;
+      gap: 20px;
+
+      input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 1.5rem;
+        // box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        border-radius: 8px;
+        padding: 10px 20px;
+        color: #f74118;
+        text-align: center;
+
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 10px;
+        // border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+    }
+
+    &-submit {
+      // width: fit-content;
+      margin: 20px auto;
+
+      button {
+        width: 100%;
+        padding: 10px 20px;
+        outline: none;
+        outline: none;
+        border: none;
+        font-size: 1.6rem;
+        color: white;
+        background-color: #ff5858;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__display {
+    &-firstPerson,
+    &-secondPerson {
+      display: flex;
+      gap: 20px;
+      margin: 30px auto;
+      width: fit-content;
+    }
+  }
+}
+
+.letter {
+  background-color: #fabab7;
+  width: 100%;
+  text-align: center;
+  padding: 40px 50px;
+  font-size: 2rem;
+  position: relative;
+
+  &.found {
+    // background-color: red;
+    position: relative;
+
+    &::after {
+      content: " ";
+      width: 5px;
+      height: 170px;
+      background-color: rgba(0, 0, 0, 0.603);
+      position: absolute;
+      right: 50%;
+      top: -30px;
+      rotate: 43deg;
+      transform: translateX(50%);
+      animation: cross-found-animation 0.3s;
+    }
+  }
+
+  &.current {
+    background-color: orange;
+  }
+}
+
+@keyframes cross-found-animation {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 170px;
+  }
+}
