@@ -120,6 +120,42 @@
       width: fit-content;
     }
   }
+
+  &__flames {
+    display: flex;
+    width: fit-content;
+    margin: 50px auto 20px;
+    font-size: 3rem;
+    gap: 20px;
+
+    .flame {
+      color: #ff5858;
+      padding: 40px 50px;
+      border-radius: 32px;
+
+      &.current {
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        background-color: #fabab7;
+      }
+
+      &.cut {
+        position: relative;
+
+        &::after {
+          content: " ";
+          width: 5px;
+          height: 170px;
+          background-color: rgba(0, 0, 0, 0.603);
+          position: absolute;
+          right: 50%;
+          top: -30px;
+          rotate: 43deg;
+          transform: translateX(50%);
+          animation: cross-found-animation 0.3s;
+        }
+      }
+    }
+  }
 }
 
 .letter {
@@ -151,6 +187,12 @@
   &.current {
     background-color: orange;
   }
+}
+
+.result {
+  text-align: center;
+  font-size: 4rem;
+  color: #f74118;
 }
 
 @keyframes cross-found-animation {
